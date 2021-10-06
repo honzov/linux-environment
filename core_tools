@@ -8,3 +8,4 @@ sudo apt install ripgrep
 sudo apt install docker
 sudo apt install chromium-browser
 sudo apt install cmake
+sudo apt install unp

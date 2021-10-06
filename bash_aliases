@@ -1,3 +1,9 @@
 alias o='xdg-open'
+alias mv='mv -i'
+alias rm='rm -i'
 alias books='cd ~/Documents/books'
 alias school='cd ~/Documents/school'
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
