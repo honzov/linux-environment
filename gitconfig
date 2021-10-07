@@ -1,0 +1,16 @@
+[user]
+	name = Jan Jirák
+	email = jirak.honza@seznam.cz
+[color]
+	ui = auto
+[push]
+	default = simple
+[core]
+	editor = vim
+	autocrlf = input
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	ll = log --oneline --graph --all\n--decorate
