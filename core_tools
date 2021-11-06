@@ -9,3 +9,6 @@ sudo apt install docker
 sudo apt install chromium-browser
 sudo apt install cmake
 sudo apt install unp
+sudo apt install ranger
+sudo apt install gpaste
+sudo apt install gimp
