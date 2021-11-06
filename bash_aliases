@@ -1,4 +1,5 @@
 alias o='xdg-open'
+alias r='source /usr/bin/ranger'
 alias mv='mv -i'
 alias rm='rm -i'
 alias books='cd ~/Documents/books'
