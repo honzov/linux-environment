@@ -12,3 +12,11 @@ sudo apt install unp
 sudo apt install ranger
 sudo apt install gpaste
 sudo apt install gimp
+sudo apt install teams
+
+sudo snap install clion --classic
+sudo snap install webstorm --classic
+sudo snap install discord
+sudo snap install vlc
+sudo snap install zoom-client
+
