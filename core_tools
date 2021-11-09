@@ -13,6 +13,8 @@ sudo apt install ranger
 sudo apt install gpaste
 sudo apt install gimp
 sudo apt install teams
+sudo apt install p7zip p7zip-full
+
 
 sudo snap install clion --classic
 sudo snap install webstorm --classic
