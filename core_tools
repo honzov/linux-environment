@@ -16,6 +16,8 @@ sudo apt install teams
 sudo apt install p7zip p7zip-full
 sudo apt install wireshark
 sudo apt install net-tools
+sudo apt install rar unrar unrar-free
+
 
 
 
