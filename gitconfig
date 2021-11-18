@@ -14,3 +14,4 @@
 	co = checkout
 	br = branch
 	ll = log --oneline --graph --all\n--decorate
+	sw = switch
