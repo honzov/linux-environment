@@ -18,6 +18,7 @@ sudo apt install wireshark
 sudo apt install net-tools
 sudo apt install rar unrar unrar-free
 sudo apt install htop
+sudo apt install virtualbox
 
 
 
