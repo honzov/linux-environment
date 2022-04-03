@@ -20,6 +20,7 @@ sudo apt install rar unrar unrar-free
 sudo apt install htop
 sudo apt install virtualbox
 sudo apt install gnome-tweak-tool
+sudo apt install texmaker
 
 
 
