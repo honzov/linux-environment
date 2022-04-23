@@ -22,6 +22,7 @@ sudo apt install virtualbox
 sudo apt install gnome-tweak-tool
 sudo apt install texmaker
 sudo apt install mlocate
+sudo apt install tldr
 
 
 
