@@ -3,6 +3,7 @@ alias r='source /usr/bin/ranger'
 alias unp='unp -U'
 alias mv='mv -i'
 alias rm='rm -i'
+alias cat='bat'
 alias books='cd ~/Documents/books'
 alias school='cd ~/Documents/school'
 alias ..="cd .."

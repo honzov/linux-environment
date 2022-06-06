@@ -24,7 +24,7 @@ sudo apt install texmaker
 sudo apt install mlocate
 sudo apt install tldr
 sudo apt install tree
-
+sudo apt install bat
 
 
 
