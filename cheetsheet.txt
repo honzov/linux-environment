@@ -2,3 +2,12 @@ PYTHON
 =======================================
 python3 -m http.server
 python3 -mpdb script.py
+
+
+SCREEN
+=======================================
+screen -S {{session_name}} # create
+screen -ls # list
+screen -r {{session_name}} # reconnect
+Ctrl + A, D # detach
+screen -X -S {{session_name}} # kill
