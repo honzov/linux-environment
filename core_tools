@@ -27,15 +27,6 @@ sudo apt install tree
 sudo apt install bat
 sudo apt install screen
 sudo apt install fish
-# =========================
-sudo apt install build-essential
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh # install rust
-source $HOME/.cargo/env
-cargo install sd
-# ========================
-
-
-
 
 sudo snap install clion --classic
 sudo snap install webstorm --classic

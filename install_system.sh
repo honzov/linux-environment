@@ -3,6 +3,7 @@ source ./core_tools
 
 # change default shell to fish
 chsh -s /usr/bin/fish
+fish
 set -U fish_greeting
 cp ./fish/config.fish ~/.config/fish/
 fish_config prompt choose informative_vcs
