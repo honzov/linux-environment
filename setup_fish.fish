@@ -1,7 +1,5 @@
-# install all utils
-source ./core_tools
+#!/bin/fish
 
-# change default shell to fish
 chsh -s /usr/bin/fish
 fish
 set -U fish_greeting
