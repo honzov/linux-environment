@@ -29,8 +29,6 @@ end
 
 install_tools $argv[1]
 
-# copy tmux config
 cp _tmux.conf ~/.tmux.conf
-
-# copy clang-format
 cp _clang-format ~/.clang-format
+cp _gitconfig ~/.gitconfig
