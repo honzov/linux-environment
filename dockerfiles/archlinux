@@ -1,4 +1,5 @@
 FROM archlinux
+MAINTAINER Jan Jirak
 
 RUN pacman -Sy --noconfirm bash fish sudo vim && pacman -Scc --noconfirm
 
@@ -9,7 +10,10 @@ RUN useradd -m -s /bin/fish somebody \
   && echo "root:video-speedy-torment" | chpasswd
 
 COPY --chown=somebody:somebody . /home/somebody/linux_environment
+WORKDIR /home/somebody/linux_environment
+USER root
+RUN ./install_tools.fish
 USER somebody
-WORKDIR /home/somebody
+RUN ./setup_env.fish
 
 CMD ["/bin/bash"]

@@ -1,8 +1,7 @@
 #!/bin/fish
 
-set basic_tools git neovim tmux htop zip unzip curl xsel
-set full_tools fzf tweaks python-3 ripgrep docker cmake unp ranger gpaste \
-    wireshark net-tools rar  unrar virtualbox gnome-tweak-tool tldr man
+set basic_tools git neovim tmux htop zip unzip curl xsel ranger fzf tldr man ripgrep
+set full_tools tweaks python-3 docker cmake unp gpaste wireshark net-tools rar  unrar virtualbox gnome-tweak-tool 
 
 function install_tools
     if apt-get --version &> /dev/null
@@ -15,7 +14,7 @@ function install_tools
     for i in $basic_tools
         eval "$install_comm $i"
     end
-    if test -n "$argv[1]" -a "$argv[1]" = "--full"
+    if test -n "$argv[1]" -a "$argv[1]" = "--main"
         for i in $full_tools
             eval "$install_comm $i"
         end  
@@ -25,7 +24,4 @@ end
 echo STARTING INSTALLATION
 install_tools $argv[1]
 
-cp _tmux.conf ~/.tmux.conf
-cp _clang-format ~/.clang-format
-cp _gitconfig ~/.gitconfig
 
