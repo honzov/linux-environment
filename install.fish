@@ -1,21 +1,16 @@
 #!/bin/fish
 
-if test (whoami) != root
-    echo "Please run under root"
-    exit 1
-end
-
 set basic_tools git neovim tmux htop zip unzip curl xsel
 set full_tools fzf tweaks python-3 ripgrep docker cmake unp ranger gpaste \
-    wireshark net-tools rar  unrar virtualbox gnome-tweak-tool tldr
+    wireshark net-tools rar  unrar virtualbox gnome-tweak-tool tldr man
 
 function install_tools
     if apt-get --version &> /dev/null
         sudo apt-get -y update 
-        set install_comm "apt-get install"
+        set install_comm "sudo apt-get install"
     else if pacman --version &> /dev/null
         sudo pacman -Syu --noconfirm
-        set install_comm "pacman -Suy"
+        set install_comm "sudo pacman -Suy --noconfirm"
     end
     for i in $basic_tools
         eval "$install_comm $i"
@@ -27,8 +22,10 @@ function install_tools
     end
 end
 
+echo STARTING INSTALLATION
 install_tools $argv[1]
 
 cp _tmux.conf ~/.tmux.conf
 cp _clang-format ~/.clang-format
 cp _gitconfig ~/.gitconfig
+

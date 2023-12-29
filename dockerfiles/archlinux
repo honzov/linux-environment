@@ -1,0 +1,15 @@
+FROM archlinux
+
+RUN pacman -Sy --noconfirm bash fish sudo vim && pacman -Scc --noconfirm
+
+# set up users and passwords
+RUN useradd -m -s /bin/fish somebody \
+  && echo 'somebody ALL=(ALL) ALL' > /etc/sudoers.d/somebody \
+  && echo "somebody:fiat-trying-forty" | chpasswd \
+  && echo "root:video-speedy-torment" | chpasswd
+
+COPY --chown=somebody:somebody . /home/somebody/linux_environment
+USER somebody
+WORKDIR /home/somebody
+
+CMD ["/bin/bash"]
