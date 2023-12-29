@@ -6,14 +6,23 @@ RUN pacman -Sy --noconfirm bash fish sudo vim && pacman -Scc --noconfirm
 # set up users and passwords
 RUN useradd -m -s /bin/fish somebody \
   && echo 'somebody ALL=(ALL) ALL' > /etc/sudoers.d/somebody \
-  && echo "somebody:fiat-trying-forty" | chpasswd \
-  && echo "root:video-speedy-torment" | chpasswd
+  && echo "somebody:pass" | chpasswd \
+  && echo "root:pass" | chpasswd
 
 COPY --chown=somebody:somebody . /home/somebody/linux_environment
 WORKDIR /home/somebody/linux_environment
 USER root
 RUN ./install_tools.fish
+# install and configure ssh server
+RUN pacman --noconfirm --needed -Syu openssh
+RUN ssh-keygen -A && echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+
 USER somebody
 RUN ./setup_env.fish
 
-CMD ["/bin/bash"]
+# install and configure ssh server
+USER root
+RUN pacman --noconfirm --needed -Syu openssh
+RUN ssh-keygen -A && echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+EXPOSE 22
+CMD ["/usr/bin/sudo", "/usr/sbin/sshd", "-D", "-o", "ListenAddress=0.0.0.0"]
