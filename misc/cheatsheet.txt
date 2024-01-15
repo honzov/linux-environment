@@ -1,3 +1,8 @@
+ARCH
+=======================================
+https://itsfoss.com/install-arch-linux/
+
+
 PYTHON
 =======================================
 python3 -m http.server
