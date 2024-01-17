@@ -5,6 +5,8 @@ cp _clang-format ~/.clang-format
 cp _gitconfig ~/.gitconfig
 cp _config.fish ~/.config/fish/config.fish
 
+ssh-keygen -t ed25519 -C "jirak.honza@seznam.cz" -f ~/.ssh/ed25519-key
+
 chsh -s /bin/fish
 set -U fish_greeting
 if test -n "$argv[1]" -a "$argv[1]" = "--main"
