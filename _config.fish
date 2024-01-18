@@ -34,6 +34,6 @@ alias gl-all='git submodule sync --recursive && git pull && git submodule update
 #################################
 
 set -gx PATH $HOME/bin $PATH
-set -gx EDITOR=vim
-set -gx VISUAL=vim
+set -gx EDITOR vim
+set -gx VISUAL vim
 
