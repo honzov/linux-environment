@@ -1,7 +1,7 @@
 #!/bin/fish
 
 set base_tools git neovim tmux htop zip unzip curl xsel ranger fzf tldr man ripgrep
-set full_tools python docker cmake unp gpaste net-tools virtualbox
+set full_tools python docker cmake unp gpaste net-tools virtualbox httpie ufw
 
 function install_arch
     set arch_install_comm sudo pacman -S --noconfirm --needed
@@ -40,9 +40,9 @@ function install_ubuntu
 end
 
 function install_tools
-    if apt-get --version &> /dev/null
+    if command -v apt-get &> /dev/null
         install_ubuntu
-    else if pacman --version &> /dev/null
+    else if command -v pacman &> /dev/null
         install_arch
     end
 end
