@@ -69,6 +69,9 @@ ln -srfv _tmux.conf ~/.tmux.conf
 # copy clang-format
 ln -srfv _clang-format ~/.clang-format
 
+# copy git config
+ln -srfv _gitconfig ~/.gitconfig
+
 # copy binaries
 mkdir -vp ~/bin
 ln -srfv bin/* ~/bin/
