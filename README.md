@@ -1,25 +1,20 @@
-# LINUX-ENVIRONMENT
+## LINUX-ENVIRONMENT
+Inspired by the great FloopCZ (https://github.com/FloopCZ/linux-environment)
 
-## Getting Started with Setup
+## Deployment
+```bash
+git clone https://github.com/honzov/linux-environment.git
+cd linux-environment
+./deploy.sh --install
+```
+Do not forget to change your .gitconfit.
 
-### Step 1: Install Fish Shell
-Begin by installing the Fish shell on your system.
-
-### Step 2: Run Installation Script
-Use the `install_tools.fish` script to install utilities. Choose a level based on your needs:
-
-- **Level 0:** Base utilities suitable for a remote system.
-- **Level 1:** More standalone utilities for your primary workstation.
-- **Level 2:** Additional software for a fully-equipped setup.
-
-Command format:
-./install_tools.fish {level}
-
-### Step 3: Run nvironment setup script
-
-Command format:
-./setup_env.fish {--main}
-- with --main flag for setting shorter prompt on you main workstation
-
-### Other option
-Build dockerfile with sshd agent running (note change password of somebody user)
+## Run linux-env in docker
+```bash
+git clone https://github.com/honzov/linux-environment.git
+cd linux-environment
+docker build -t honzov/linux-env:latest -f dockerfiles/archlinux .
+# or docker pull honzov/linux-env:latest
+docker run --rm -d -p 2222:22 honzov/linux-env:latest
+ssh somebody@localhost -p 2222 # password: pass
+```
