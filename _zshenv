@@ -1,0 +1,20 @@
+# Use nvim as the default editor
+export VISUAL='nvim -p'
+export EDITOR=$VISUAL
+
+# Add user's home/bin to path
+export PATH="${HOME}/bin:$PATH"
+
+# Publish ssh agent socket
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+
+# Add user's home/.local hierarchy to appropriate variables
+export PATH="${HOME}/.local/bin:$PATH"
+export LIBRARY_PATH="${HOME}/.local/lib:$LIBRARY_PATH"
+export LD_LIBRARY_PATH="${HOME}/.local/lib:$LD_LIBRARY_PATH"
+export CPLUS_INCLUDE_PATH="${HOME}/.local/include:$CPLUS_INCLUDE_PATH"
+
+# Load local zshenv.
+if [ -f .zshenv-local ]; then
+    source .zshenv-local
+fi

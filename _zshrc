@@ -1,0 +1,80 @@
+export ZSH="${HOME}/.oh-my-zsh"
+export ZSH_CUSTOM="${HOME}/.oh-my-zsh-custom"
+
+ZSH_THEME="simple"
+
+# Show dots when loading completition takes long time.
+COMPLETION_WAITING_DOTS="true"
+
+# Use a different history date format.
+HIST_STAMPS="yyyy-mm-dd"
+
+# Allow longer history
+SAVEHIST=20000
+
+# Share history between shells.
+setopt share_history
+
+# Autostart tmux.
+ZSH_TMUX_AUTOSTART=false
+ZSH_TMUX_AUTOQUIT=false
+
+# Disable oh-my-zsh autoupdate.
+DISABLE_AUTO_UPDATE=true
+
+# Load plugins and oh-my-zsh.
+plugins=(
+  git
+  sudo
+  tmux
+  vi-mode
+  zsh-autosuggestions
+)
+source "${ZSH}/oh-my-zsh.sh"
+
+if hash fzf 2>/dev/null; then
+    source /usr/share/fzf/key-bindings.zsh
+    source /usr/share/fzf/completion.zsh
+fi
+
+# Enable direnv
+if hash direnv 2>/dev/null; then
+    eval "$(direnv hook zsh)"
+fi
+
+# Enable pyenv
+if hash pyenv 2>/dev/null; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
+
+# Accept autosuggestions using Ctrl+Space
+bindkey "^ " autosuggest-execute
+
+# Enable aliases to pass through sudo.
+alias sudo='sudo '
+
+# Use neovim or vim with panels by default.
+if hash nvim 2>/dev/null; then
+    alias vim='nvim -p'
+else
+    alias vim='vim -p'
+fi
+
+# Move to trash instead of hard rm.
+if hash trash 2>/dev/null; then
+    alias rm='trash'
+fi
+
+# Fast jump to git root.
+alias cgr='cd "$(git rev-parse --show-toplevel)"'
+
+# Alias for `du` sorted by size.
+function du-sort() {
+    du -csBM "$@" | sort -n
+}
+
+# Load local zshrc.
+if [ -f "${HOME}/.zshrc-local" ]; then
+    source "${HOME}/.zshrc-local"
+fi

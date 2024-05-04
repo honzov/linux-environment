@@ -1,24 +1,29 @@
 FROM archlinux
 MAINTAINER Jan Jirak
 
-RUN pacman -Sy --noconfirm bash fish sudo vim && pacman -Scc --noconfirm
+RUN pacman -Syu --needed --noconfirm zsh sudo vim
 
 # set up users and passwords
-RUN useradd -m -s /bin/fish somebody \
+RUN useradd -m -s /usr/bin/zsh somebody \
   && echo 'somebody ALL=(ALL) ALL' > /etc/sudoers.d/somebody \
   && echo "somebody:pass" | chpasswd \
   && echo "root:pass" | chpasswd
 
-COPY --chown=somebody:somebody . /home/somebody/linux_environment
-WORKDIR /home/somebody/linux_environment
+# install linux environment for root
+COPY . /root/linux-environment
+RUN cd /root/linux-environment \
+  && ./deploy.sh --install
+
+# install linux environment for unprivileged user
+RUN cp -r /root/linux-environment /home/somebody/ \
+  && chown -R somebody:somebody /home/somebody/linux-environment
+USER somebody
+RUN cd /home/somebody/linux-environment && ./deploy.sh
 USER root
-RUN ./install_tools.fish
+
 # install and configure ssh server
 RUN pacman --noconfirm --needed -Syu openssh
 RUN ssh-keygen -A && echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
-
-USER somebody
-RUN ./setup_env.fish
 
 # install and configure ssh server
 USER root
