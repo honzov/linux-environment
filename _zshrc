@@ -74,6 +74,16 @@ function du-sort() {
     du -csBM "$@" | sort -n
 }
 
+function ranger-cd {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+}
+
 # Load local zshrc.
 if [ -f "${HOME}/.zshrc-local" ]; then
     source "${HOME}/.zshrc-local"

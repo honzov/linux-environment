@@ -14,6 +14,12 @@ export LIBRARY_PATH="${HOME}/.local/lib:$LIBRARY_PATH"
 export LD_LIBRARY_PATH="${HOME}/.local/lib:$LD_LIBRARY_PATH"
 export CPLUS_INCLUDE_PATH="${HOME}/.local/include:$CPLUS_INCLUDE_PATH"
 
+alias o='xdg-open'
+alias r='source /usr/bin/ranger'
+alias unp='unp -U'
+alias mv='mv -i'
+alias r=ranger-cd
+
 # Load local zshenv.
 if [ -f .zshenv-local ]; then
     source .zshenv-local
