@@ -1,5 +1,5 @@
 # Use nvim as the default editor
-export VISUAL='nvim -p'
+export VISUAL='vim -p'
 export EDITOR=$VISUAL
 
 # Add user's home/bin to path
