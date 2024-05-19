@@ -8,10 +8,3 @@
 [core]
 	editor = vim
 	autocrlf = input
-[alias]
-	st = status
-	ci = commit
-	co = checkout
-	br = branch
-	ll = log --oneline --graph --all\n--decorate
-	sw = switch
