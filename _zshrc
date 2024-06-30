@@ -22,6 +22,12 @@ ZSH_TMUX_AUTOQUIT=false
 # Disable oh-my-zsh autoupdate.
 DISABLE_AUTO_UPDATE=true
 
+# Enable pyenv (intall pyenv, pyenv-virtualenv)
+if hash pyenv 2>/dev/null; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
+
 # Load plugins and oh-my-zsh.
 plugins=(
   git
@@ -45,12 +51,6 @@ fi
 # Enable direnv
 if hash direnv 2>/dev/null; then
     eval "$(direnv hook zsh)"
-fi
-
-# Enable pyenv
-if hash pyenv 2>/dev/null; then
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
 fi
 
 # Accept autosuggestions using Ctrl+Space
