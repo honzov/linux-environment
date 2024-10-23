@@ -10,3 +10,8 @@ PYTHON
 =======================================
 python3 -m http.server
 python3 -mpdb script.py
+
+
+HARDWARE
+=======================================
+tp-link ac600 archer t2u plus (realtek-rtl88xxau-dkms)
