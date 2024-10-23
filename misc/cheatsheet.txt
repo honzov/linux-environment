@@ -2,17 +2,11 @@ ARCH
 =======================================
 https://itsfoss.com/install-arch-linux/
 
+VIRTUALBOX SETUP
+=======================================
+https://linuxiac.com/how-to-install-virtualbox-on-arch-linux/
 
 PYTHON
 =======================================
 python3 -m http.server
 python3 -mpdb script.py
-
-
-SCREEN
-=======================================
-screen -S {{session_name}} # create
-screen -ls # list
-screen -r {{session_name}} # reconnect
-Ctrl + A, D # detach
-screen -X -S {{session_name}} # kill
