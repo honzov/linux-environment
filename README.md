@@ -18,3 +18,15 @@ docker build -t honzov/linux-env:latest -f dockerfiles/archlinux .
 docker run --rm -d -p 2222:22 honzov/linux-env:latest
 ssh somebody@localhost -p 2222 # password: pass
 ```
+
+## Optional steps
+C++ development:
+```
+clangd cmake
+```
+
+New ssh key generation and provisioning:
+```
+ssh-keygen -t ed25519 -C "your_email@example.com"
+ssh-copy-id username@server_address
+```
