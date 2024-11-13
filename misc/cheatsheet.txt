@@ -11,6 +11,12 @@ PYTHON
 python3 -m http.server
 python3 -mpdb script.py
 
+GITHUB ACTIONS
+=======================================
+- name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        with:
+          sudo: false
 
 HARDWARE
 =======================================
