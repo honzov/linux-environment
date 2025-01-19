@@ -21,6 +21,7 @@ alias mv='mv -i'
 alias r=ranger-cd
 alias tar-extract='tar -xzvf'
 alias tar-list='tar -ztvf'
+alias cp="cp --reflink=auto"
 
 
 # Load local zshenv.
