@@ -23,6 +23,7 @@ alias tar-extract='tar -xzvf'
 alias tar-list='tar -ztvf'
 alias cp="cp --reflink=auto"
 alias xc="xsel -b"
+alias jc="journalctl"
 
 
 # Load local zshenv.
