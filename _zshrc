@@ -40,6 +40,9 @@ plugins=(
   docker
   httpie
   pyenv
+  ssh
+  transfer
+  universalarchive
 )
 source "${ZSH}/oh-my-zsh.sh"
 
