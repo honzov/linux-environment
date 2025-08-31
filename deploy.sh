@@ -38,6 +38,8 @@ if [ "$1" = "--install" ]; then
 
   # install basic packages
   sudo $pacman_bin git neovim ${pynvim_pkg} zsh tmux htop zip unzip xsel curl trash-cli fzf ripgrep tldr ranger
+  # more packages:
+  #  bear clang cmake cursor-bin dbeaver google-chrome gwenview httpie lsof man-db perf tree unp linux-headers
 fi
 
 # get submodules
