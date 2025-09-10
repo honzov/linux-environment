@@ -60,18 +60,16 @@ if [ "$current_shell" != "zsh" ]; then
   chsh -s "${zsh_shell}"
 fi
 
-# copy zsh config
+# copy config files
 ln -srfv _zshrc ~/.zshrc
 ln -srfv _zprofile ~/.zprofile
 ln -srfv _zshenv ~/.zshenv
 
-# copy tmux config
 ln -srfv _tmux.conf ~/.tmux.conf
 
-# copy clang-format
 ln -srfv _clang-format ~/.clang-format
 
-# copy git config
+ln -srfv _gitignore_global ~/.gitignore_global
 ln -srfv _gitconfig ~/.gitconfig
 
 # copy binaries

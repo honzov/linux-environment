@@ -8,3 +8,4 @@
 [core]
 	editor = vim
 	autocrlf = input
+	excludesfile = ~/.gitignore_global
