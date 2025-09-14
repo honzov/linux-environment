@@ -16,6 +16,7 @@ Thumbs.db
 .project
 .settings/
 .classpath
+.cache
 
 # Build artifacts
 *.o
