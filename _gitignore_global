@@ -29,6 +29,7 @@ dist/
 target/
 bin/
 obj/
+compile_commands*
 
 # Package managers
 node_modules/
