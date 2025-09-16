@@ -7,4 +7,4 @@ if [ $# -lt 1 ]; then
   exit 1
 fi
 
-find "$1" -iname "*pp" -exec clang-format --style=file -i {} \;
+find "$1" \( -iname "*.cpp" -o -iname "*.hpp" -o -iname "*.c" -o -iname "*.h" \) -exec clang-format --style=file -i {} \;
