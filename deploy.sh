@@ -71,6 +71,7 @@ ln -srfv _clang-format ~/.clang-format
 
 ln -srfv _gitignore_global ~/.gitignore_global
 ln -srfv _gitconfig ~/.gitconfig
+ln -srfv _gdbinit ~/.gdbinit
 
 # copy binaries
 mkdir -vp ~/bin
