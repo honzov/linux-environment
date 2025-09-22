@@ -17,6 +17,7 @@ Thumbs.db
 .settings/
 .classpath
 .cache
+.gdb_history
 
 # Build artifacts
 *.o
