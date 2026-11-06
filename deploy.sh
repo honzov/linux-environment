@@ -14,6 +14,7 @@ if [ "$1" = "--install" ]; then
       if ! hash direnv 2>/dev/null; then ./bin/aur-install direnv --noconfirm --needed; fi
       pacman_bin="pacman -S --noconfirm --needed"
       pynvim_pkg="python-pynvim"
+      extra_pkgs="fd lazygit npm ttf-jetbrains-mono-nerd"
   elif hash dnf 2>/dev/null; then
       # Fedora
       dnf -y install sudo || true
@@ -22,6 +23,7 @@ if [ "$1" = "--install" ]; then
       sudo dnf -y install util-linux-user direnv
       pacman_bin="dnf -y install"
       pynvim_pkg="python3-neovim"
+      extra_pkgs="fd-find npm"
   elif hash apt-get 2>/dev/null; then
       # Debian/Ubuntu
       export DEBIAN_FRONTEND=noninteractive
@@ -32,12 +34,13 @@ if [ "$1" = "--install" ]; then
       sudo -E apt-get -y install build-essential libpam-systemd direnv
       pacman_bin="DEBIAN_FRONTEND=noninteractive apt-get -y install"
       pynvim_pkg="python3-neovim"
+      extra_pkgs="fd-find npm"
   else
       pacman_bin=/bin/false
   fi
 
   # install basic packages
-  sudo $pacman_bin git neovim ${pynvim_pkg} zsh tmux htop zip unzip xsel curl trash-cli fzf ripgrep tldr ranger
+  sudo $pacman_bin git neovim ${pynvim_pkg} zsh tmux htop zip unzip xsel curl trash-cli fzf ripgrep tldr ranger ${extra_pkgs}
   # more packages:
   #  bear clang cmake cursor-bin dbeaver google-chrome gwenview httpie lsof man-db perf tree unp linux-headers
 fi
@@ -48,6 +51,8 @@ git submodule update --recursive
 
 # copy vim config
 ln -srfv _vimrc ~/.vimrc
+mkdir -p ~/.config
+ln -srfTv nvim ~/.config/nvim
 
 ln -srfTv oh-my-zsh ~/.oh-my-zsh
 ln -srfTv oh-my-zsh-custom ~/.oh-my-zsh-custom

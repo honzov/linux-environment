@@ -19,6 +19,10 @@ docker run --rm -d -p 2222:22 honzov/linux-env:latest
 ssh somebody@localhost -p 2222 # password: pass
 ```
 
+## Neovim
+Config lives in `nvim/` (LazyVim) and is symlinked to `~/.config/nvim`; see `nvim/README.md` for keys.
+Set your terminal font to a Nerd Font (e.g. JetBrainsMono Nerd Font) so icons render.
+
 ## Optional steps
 C++ development:
 ```

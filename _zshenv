@@ -1,7 +1,3 @@
-# Use nvim as the default editor
-export VISUAL='vim -p'
-export EDITOR=$VISUAL
-
 # Add user's home/bin to path
 export PATH="${HOME}/bin:$PATH"
 
@@ -13,6 +9,14 @@ export PATH="${HOME}/.local/bin:$PATH"
 export LIBRARY_PATH="${HOME}/.local/lib:$LIBRARY_PATH"
 export LD_LIBRARY_PATH="${HOME}/.local/lib:$LD_LIBRARY_PATH"
 export CPLUS_INCLUDE_PATH="${HOME}/.local/include:$CPLUS_INCLUDE_PATH"
+
+# Use nvim as the default editor if available, vim otherwise (after PATH is set up)
+if command -v nvim >/dev/null 2>&1; then
+    export VISUAL='nvim'
+else
+    export VISUAL='vim'
+fi
+export EDITOR=$VISUAL
 
 alias o='xdg-open'
 alias r='source /usr/bin/ranger'
