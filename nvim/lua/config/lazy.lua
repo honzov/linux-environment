@@ -44,7 +44,7 @@ local ok, err = pcall(require("lazy").setup, {
   change_detection = { notify = false },
   performance = {
     rtp = {
-      disabled_plugins = { "gzip", "tarPlugin", "tohtml", "tutor", "zipPlugin" },
+      disabled_plugins = { "gzip", "tarPlugin", "tohtml", "zipPlugin" },
     },
   },
 })
