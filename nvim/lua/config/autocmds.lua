@@ -36,3 +36,40 @@ vim.api.nvim_create_autocmd("FileChangedShellPost", {
     vim.notify("Reloaded: " .. vim.fn.fnamemodify(ev.file, ":."), vim.log.levels.INFO)
   end,
 })
+
+-- Autosave: write modified file buffers 1 s after edits stop, and right away
+-- on leaving the buffer or losing focus. Autosaves skip LazyVim's format-on-save
+-- (explicit :w still formats), so autosave never reformats code under review.
+local function autosave(buf)
+  buf = buf or vim.api.nvim_get_current_buf()
+  local bo = vim.bo[buf]
+  if not vim.api.nvim_buf_is_valid(buf) or not bo.modified or bo.buftype ~= "" or bo.readonly
+    or not bo.modifiable or vim.api.nvim_buf_get_name(buf) == "" then
+    return
+  end
+  local prev = vim.g.autoformat
+  vim.g.autoformat = false
+  vim.api.nvim_buf_call(buf, function()
+    vim.cmd("silent! lockmarks update")
+  end)
+  vim.g.autoformat = prev
+end
+
+local save_timer = (vim.uv or vim.loop).new_timer()
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+  group = group,
+  callback = function(ev)
+    save_timer:stop()
+    save_timer:start(1000, 0, vim.schedule_wrap(function()
+      if vim.fn.mode() ~= "i" then
+        autosave(ev.buf)
+      end
+    end))
+  end,
+})
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "VimLeavePre" }, {
+  group = group,
+  callback = function(ev)
+    autosave(ev.buf)
+  end,
+})
